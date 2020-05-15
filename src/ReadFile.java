@@ -11,13 +11,13 @@ public class ReadFile {
         ArrayList<String> numbersList = new ArrayList<>();
         fruitWithNumbersList.add("Fruit with numbers:");
 
-        String splitter = ";";
+        String delimiter = ";";
 
         Scanner input  = new Scanner(System.in);
         System.out.println("What is the delimiter of your CSV file? ; or , (; being the default value)");
-        splitter = input.next();
-        if (!splitter.equals(",")){
-            splitter = ";";
+        delimiter = input.next();
+        if (!delimiter.equals(",")){
+            delimiter = ";";
         }
         System.out.println("What file do you want to open? Include extension (.csv, .txt etc.)");
         String fileName = input.next();
@@ -28,7 +28,7 @@ public class ReadFile {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 data = data.replace("\"", "");
-                String[] tempData = data.split(splitter);
+                String[] tempData = data.split(delimiter);
                 fruitList.add(tempData[0]);
                 numbersList.add(tempData[1]);
             }
@@ -44,6 +44,5 @@ public class ReadFile {
         for (String str : fruitWithNumbersList) {
             System.out.println(str);
         }
-
     }
 }
