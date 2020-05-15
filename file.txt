@@ -1,4 +1,4 @@
-apples;4
-oranges;45
-pears;12
+"apples";4""
+"oranges";45""
+"pears"""f"";12""""
 coconuts;14

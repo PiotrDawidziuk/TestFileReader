@@ -19,12 +19,15 @@ public class ReadFile {
         if (!splitter.equals(",")){
             splitter = ";";
         }
+        System.out.println("What file do you want to open? Include extension (.csv, .txt etc.)");
+        String fileName = input.next();
 
         try {
-            File myObj = new File("file.txt");
+            File myObj = new File(fileName);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
+                data = data.replace("\"", "");
                 String[] tempData = data.split(splitter);
                 fruitList.add(tempData[0]);
                 numbersList.add(tempData[1]);
