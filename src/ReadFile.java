@@ -6,8 +6,10 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class ReadFile {
     public static void main(String[] args) {
 
-        ArrayList<String> dataList = new ArrayList<>();
-        dataList.add("Data list:");
+        ArrayList<String> fruitWithNumbersList = new ArrayList<>();
+        ArrayList<String> fruitList = new ArrayList<>();
+        ArrayList<String> numbersList = new ArrayList<>();
+        fruitWithNumbersList.add("Fruit with numbers:");
 
 
         try {
@@ -15,7 +17,9 @@ public class ReadFile {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                dataList.add(data);
+                String[] tempData = data.split(";");
+                fruitList.add(tempData[0]);
+                numbersList.add(tempData[1]);
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -23,7 +27,10 @@ public class ReadFile {
             e.printStackTrace();
         }
 
-        for (String str : dataList) {
+        for (int i = 0; i < fruitList.size(); i++) {
+            fruitWithNumbersList.add("The number of "+fruitList.get(i)+" is "+numbersList.get(i));
+        }
+        for (String str : fruitWithNumbersList) {
             System.out.println(str);
         }
 

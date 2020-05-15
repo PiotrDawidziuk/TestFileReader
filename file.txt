@@ -1,4 +1,4 @@
-Sample data
-More data
-Even more data
-last piece of data
+apples;4
+oranges;45
+pears;12
+coconuts;14
