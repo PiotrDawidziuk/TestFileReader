@@ -11,13 +11,21 @@ public class ReadFile {
         ArrayList<String> numbersList = new ArrayList<>();
         fruitWithNumbersList.add("Fruit with numbers:");
 
+        String splitter = ";";
+
+        Scanner input  = new Scanner(System.in);
+        System.out.println("What is the delimiter of your CSV file? ; or , (; being the default value)");
+        splitter = input.next();
+        if (!splitter.equals(",")){
+            splitter = ";";
+        }
 
         try {
             File myObj = new File("file.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] tempData = data.split(";");
+                String[] tempData = data.split(splitter);
                 fruitList.add(tempData[0]);
                 numbersList.add(tempData[1]);
             }
